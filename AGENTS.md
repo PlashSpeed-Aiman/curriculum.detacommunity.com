@@ -19,7 +19,7 @@ Before changing the product, read this file and [`style-guide.md`](style-guide.m
 - Routing: `src/router/index.ts` provides `/`, `/curriculum`, subject, module, track, and lesson routes.
 - Typed sample curriculum data: `src/data/curriculum.ts`, including Docker modules, mobile development tracks, and Backend development modules.
 - Authored lesson content: `src/content/*.md`, rendered with `marked` in the lesson view.
-- Current content status: Docker has authored lessons in its basics and Dockerfiles modules; Mobile app development has Android and Flutter placeholders; Backend development has placeholder modules.
+- Current content status: Docker has authored lessons in its basics, Dockerfiles, and Compose modules; Mobile app development has Android and Flutter placeholders; Backend development has placeholder modules.
 - No application state library, backend, API client, test runner, or linter is configured yet.
 - The package name is `curiculum`; use “Curriculum” in user-facing copy unless the product name is intentionally changed.
 

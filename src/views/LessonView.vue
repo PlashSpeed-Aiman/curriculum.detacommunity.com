@@ -8,6 +8,12 @@ import dockerfileBuildContextAndCacheMarkdown from '../content/dockerfile-build-
 import dockerfileFirstImageMarkdown from '../content/dockerfile-first-image.md?raw'
 import dockerfileImageLayersDeepDiveMarkdown from '../content/dockerfile-image-layers-deep-dive.md?raw'
 import dockerfileMultiStageProductionMarkdown from '../content/dockerfile-multi-stage-production.md?raw'
+import dockerComposeYamlMarkdown from '../content/docker-compose-yaml.md?raw'
+import dockerComposeFirstProjectMarkdown from '../content/docker-compose-first-project.md?raw'
+import dockerComposeNetworkingMarkdown from '../content/docker-compose-networking.md?raw'
+import dockerComposeVolumesMarkdown from '../content/docker-compose-volumes.md?raw'
+import dockerComposeConfigurationReadinessMarkdown from '../content/docker-compose-configuration-readiness.md?raw'
+import dockerComposeExternalNetworksMarkdown from '../content/docker-compose-external-networks.md?raw'
 import { curriculumSubjects } from '../data/curriculum'
 
 const route = useRoute()
@@ -47,6 +53,12 @@ const markdownByFile: Record<string, string> = {
   'dockerfile-first-image.md': dockerfileFirstImageMarkdown,
   'dockerfile-image-layers-deep-dive.md': dockerfileImageLayersDeepDiveMarkdown,
   'dockerfile-multi-stage-production.md': dockerfileMultiStageProductionMarkdown,
+  'docker-compose-yaml.md': dockerComposeYamlMarkdown,
+  'docker-compose-first-project.md': dockerComposeFirstProjectMarkdown,
+  'docker-compose-networking.md': dockerComposeNetworkingMarkdown,
+  'docker-compose-volumes.md': dockerComposeVolumesMarkdown,
+  'docker-compose-configuration-readiness.md': dockerComposeConfigurationReadinessMarkdown,
+  'docker-compose-external-networks.md': dockerComposeExternalNetworksMarkdown,
 }
 const lessonHtml = computed(() => {
   const markdown = lesson.value ? markdownByFile[lesson.value.contentFile] : undefined

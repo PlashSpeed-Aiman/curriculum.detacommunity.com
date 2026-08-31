@@ -28,6 +28,13 @@ npm run preview
 - `/curriculum/docker/dockerfiles/build-context-and-cache` - Build context and cache lesson
 - `/curriculum/docker/dockerfiles/multi-stage-production` - Multi-stage production lesson
 - `/curriculum/docker/dockerfiles/image-layers-deep-dive` - Image layers deep-dive lesson
+- `/curriculum/docker/compose` - Docker Compose module
+- `/curriculum/docker/compose/yaml-for-compose` - YAML for Compose lesson
+- `/curriculum/docker/compose/first-compose-project` - First Compose project lesson
+- `/curriculum/docker/compose/networking-and-service-discovery` - Networking and service discovery lesson
+- `/curriculum/docker/compose/volumes-and-persistence` - Volumes and persistence lesson
+- `/curriculum/docker/compose/configuration-and-readiness` - Configuration and readiness lesson
+- `/curriculum/docker/compose/shared-external-networks` - Shared external networks lesson
 - `/curriculum/mobile-app-development` - Mobile app development overview
 - `/curriculum/mobile-app-development/track/android` - Android track placeholder
 - `/curriculum/mobile-app-development/track/flutter` - Flutter track placeholder
