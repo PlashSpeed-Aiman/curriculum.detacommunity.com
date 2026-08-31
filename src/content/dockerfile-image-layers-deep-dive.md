@@ -222,8 +222,8 @@ The output uses letters such as:
 - `C` for a changed directory or file.
 
 Those changes disappear when the container is removed. The image's build layers are unchanged. Use
-the exported `layer.tar` files to study image build layers and `docker diff` to study one container's
-runtime changes.
+the layer archives named in `manifest.json` to study image build layers and `docker diff` to study
+one container's runtime changes.
 
 ## What this means for Dockerfiles
 
