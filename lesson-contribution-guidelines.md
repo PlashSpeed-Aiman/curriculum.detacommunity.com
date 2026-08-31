@@ -91,6 +91,8 @@ Add a `CurriculumLesson` object to the appropriate module in `src/data/curriculu
   title: 'State in Jetpack Compose',
   summary: 'Model screen state clearly and keep recomposition predictable.',
   contentFile: 'android-compose-state.md',
+  readTime: '14 min',
+  category: 'Android / Compose',
 }
 ```
 
@@ -138,6 +140,29 @@ For example:
 
 The existing generic routes do not require a new router entry for a regular module. A new route is
 needed only when the lesson belongs to a new kind of content, such as a track-specific module.
+
+## Core And Supplementary Lessons
+
+Use the module's `lessons` array for the required sequence. Use `supplementaryLessons` for optional
+deep dives, experiments, and reference material that should appear below the main sequence:
+
+```ts
+supplementaryLessons: [
+  {
+    id: 'dockerfiles-image-layers-deep-dive',
+    slug: 'image-layers-deep-dive',
+    title: 'Deep-dive: diffing image layers',
+    summary: 'Inspect image layers and container changes step by step.',
+    contentFile: 'dockerfile-image-layers-deep-dive.md',
+    readTime: '20 min',
+    category: 'Docker / deep dive',
+  },
+],
+```
+
+Supplementary lessons use the same Markdown, metadata, import, and route rules as core lessons. They
+are not a place to hide unfinished required material, and they should be labeled as supplementary in
+their title or summary when the distinction matters.
 
 ## Lesson Structure
 
@@ -208,7 +233,7 @@ writing it.
 The current prototype has a few deliberate limitations:
 
 - Every Markdown file must be imported manually in `LessonView.vue`.
-- Lesson read time, category metadata, and footer counts are currently hardcoded in the view.
+- Read time and category are stored as lesson metadata, but they are not validated automatically.
 - The Android and Flutter `plannedModules` lists are outline-only strings, not active module routes.
 - There is no test or lint command yet; `npm run build` is the required automated check.
 

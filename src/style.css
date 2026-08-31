@@ -1176,6 +1176,16 @@ cite {
   gap: 7vw;
 }
 
+.study-section--supplementary {
+  margin-top: 120px;
+  padding-top: 80px;
+  border-top: 1px dashed var(--line-dark);
+}
+
+.study-section--supplementary .study-list {
+  border-top-style: dashed;
+}
+
 .study-section-heading h2 {
   margin: 0;
   font-family: var(--serif);
@@ -2024,6 +2034,11 @@ cite {
 
   .study-section {
     gap: 42px;
+  }
+
+  .study-section--supplementary {
+    margin-top: 78px;
+    padding-top: 52px;
   }
 
   .study-section-heading h2 {

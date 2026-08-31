@@ -65,6 +65,37 @@ const module = computed(() => subject.value?.modules?.find((item) => item.slug =
           <p>Lessons for this module are being prepared. Return soon for the first field note.</p>
         </div>
       </section>
+
+      <section
+        v-if="module.supplementaryLessons?.length"
+        class="study-section study-section--supplementary"
+        aria-labelledby="supplementary-lessons-title"
+      >
+        <div class="study-section-heading">
+          <p class="eyebrow"><span class="eyebrow-number">02</span> Supplementary study</p>
+          <h2 id="supplementary-lessons-title">Go one layer<br /><em>deeper.</em></h2>
+        </div>
+
+        <div class="study-list">
+          <article v-for="lesson in module.supplementaryLessons" :key="lesson.id" class="study-row">
+            <span class="study-row-number">+</span>
+            <div class="study-row-copy">
+              <span class="study-row-kicker">Supplementary lesson</span>
+              <h3>{{ lesson.title }}</h3>
+              <p>{{ lesson.summary }}</p>
+            </div>
+            <RouterLink
+              class="study-row-action"
+              :to="{
+                name: 'lesson',
+                params: { subjectSlug: subject.id, moduleSlug: module.slug, lessonSlug: lesson.slug },
+              }"
+            >
+              Read deep dive <span aria-hidden="true">-&gt;</span>
+            </RouterLink>
+          </article>
+        </div>
+      </section>
     </main>
 
     <main v-else class="study-main study-main--empty">

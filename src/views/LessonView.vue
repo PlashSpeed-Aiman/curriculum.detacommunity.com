@@ -3,6 +3,10 @@ import { computed } from 'vue'
 import { marked } from 'marked'
 import { RouterLink, useRoute } from 'vue-router'
 import dockerBasicsMarkdown from '../content/docker-basics.md?raw'
+import dockerfileBuildContextAndCacheMarkdown from '../content/dockerfile-build-context-and-cache.md?raw'
+import dockerfileFirstImageMarkdown from '../content/dockerfile-first-image.md?raw'
+import dockerfileImageLayersDeepDiveMarkdown from '../content/dockerfile-image-layers-deep-dive.md?raw'
+import dockerfileMultiStageProductionMarkdown from '../content/dockerfile-multi-stage-production.md?raw'
 import { curriculumSubjects } from '../data/curriculum'
 
 const route = useRoute()
@@ -11,9 +15,36 @@ const moduleSlug = computed(() => String(route.params.moduleSlug))
 const lessonSlug = computed(() => String(route.params.lessonSlug))
 const subject = computed(() => curriculumSubjects.find((item) => item.id === subjectSlug.value))
 const module = computed(() => subject.value?.modules?.find((item) => item.slug === moduleSlug.value))
-const lesson = computed(() => module.value?.lessons.find((item) => item.slug === lessonSlug.value))
+const moduleLessons = computed(() => [
+  ...(module.value?.lessons ?? []),
+  ...(module.value?.supplementaryLessons ?? []),
+])
+const lesson = computed(() => moduleLessons.value.find((item) => item.slug === lessonSlug.value))
+const lessonIndex = computed(() => moduleLessons.value.findIndex((item) => item.id === lesson.value?.id))
+const previousLesson = computed(() => {
+  const index = lessonIndex.value
+  return index > 0 ? moduleLessons.value[index - 1] : undefined
+})
+const nextLesson = computed(() => {
+  const index = lessonIndex.value
+  const lessons = moduleLessons.value
+  return index >= 0 && index < lessons.length - 1 ? lessons[index + 1] : undefined
+})
+const lessonLabel = computed(() => {
+  const index = lessonIndex.value
+  return index >= 0 ? `lesson ${String(index + 1).padStart(2, '0')}` : 'lesson'
+})
+const lessonPosition = computed(() => {
+  const total = moduleLessons.value.length
+  const current = lessonIndex.value >= 0 ? lessonIndex.value + 1 : 0
+  return `${String(current).padStart(2, '0')} / ${String(total).padStart(2, '0')}`
+})
 const markdownByFile: Record<string, string> = {
   'docker-basics.md': dockerBasicsMarkdown,
+  'dockerfile-build-context-and-cache.md': dockerfileBuildContextAndCacheMarkdown,
+  'dockerfile-first-image.md': dockerfileFirstImageMarkdown,
+  'dockerfile-image-layers-deep-dive.md': dockerfileImageLayersDeepDiveMarkdown,
+  'dockerfile-multi-stage-production.md': dockerfileMultiStageProductionMarkdown,
 }
 const lessonHtml = computed(() => {
   const markdown = lesson.value ? markdownByFile[lesson.value.contentFile] : undefined
@@ -29,7 +60,7 @@ const lessonHtml = computed(() => {
         <span>curriculum</span><span class="brand-dot">.</span>
       </RouterLink>
       <nav class="study-breadcrumbs" aria-label="Breadcrumb">
-        <RouterLink to="/curriculum">Subjects</RouterLink>
+        <RouterLink to="/curriculum">Courses</RouterLink>
         <span aria-hidden="true">/</span>
         <RouterLink v-if="subject" :to="{ name: 'subject', params: { subjectSlug: subject.id } }">
           {{ subject.title }}
@@ -46,12 +77,12 @@ const lessonHtml = computed(() => {
 
     <main v-if="subject && module && lesson" class="lesson-main">
       <header class="lesson-header">
-        <p class="eyebrow"><span class="eyebrow-number">{{ module.number }}</span> {{ subject.title }} / lesson 01</p>
+        <p class="eyebrow"><span class="eyebrow-number">{{ module.number }}</span> {{ subject.title }} / {{ lessonLabel }}</p>
         <h1>{{ lesson.title }}</h1>
         <p>{{ lesson.summary }}</p>
         <div class="lesson-meta">
-          <span>Read / 10 min</span>
-          <span>Docker / foundations</span>
+          <span>Read / {{ lesson.readTime }}</span>
+          <span>{{ lesson.category }}</span>
         </div>
       </header>
 
@@ -59,12 +90,33 @@ const lessonHtml = computed(() => {
 
       <nav class="lesson-footer-nav" aria-label="Lesson navigation">
         <RouterLink
+          v-if="previousLesson"
+          class="text-link"
+          :to="{
+            name: 'lesson',
+            params: { subjectSlug: subject.id, moduleSlug: module.slug, lessonSlug: previousLesson.slug },
+          }"
+        >
+          <span aria-hidden="true">&lt;-</span> Previous lesson
+        </RouterLink>
+        <RouterLink
+          v-else
           class="text-link"
           :to="{ name: 'module', params: { subjectSlug: subject.id, moduleSlug: module.slug } }"
         >
           <span aria-hidden="true">&lt;-</span> Back to module
         </RouterLink>
-        <span class="lesson-footer-status">Lesson 01 / 01</span>
+        <span class="lesson-footer-status">Lesson {{ lessonPosition }}</span>
+        <RouterLink
+          v-if="nextLesson"
+          class="text-link lesson-next-link"
+          :to="{
+            name: 'lesson',
+            params: { subjectSlug: subject.id, moduleSlug: module.slug, lessonSlug: nextLesson.slug },
+          }"
+        >
+          Next lesson <span aria-hidden="true">-&gt;</span>
+        </RouterLink>
       </nav>
     </main>
 
@@ -72,7 +124,7 @@ const lessonHtml = computed(() => {
       <div class="study-empty-state">
         <p class="eyebrow"><span class="eyebrow-number">404</span> Lesson not found</p>
         <h1>This lesson is <em>not ready.</em></h1>
-        <RouterLink class="button button-dark" to="/curriculum">Return to subjects <span aria-hidden="true">-&gt;</span></RouterLink>
+        <RouterLink class="button button-dark" to="/curriculum">Return to courses <span aria-hidden="true">-&gt;</span></RouterLink>
       </div>
     </main>
 

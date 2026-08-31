@@ -139,6 +139,13 @@ Always check at 320px, 390px, 768px, and a desktop width before considering a vi
 - Use coral for links and a small number of meaningful callouts, not for large blocks of lesson text.
 - Keep breadcrumbs and a back-to-module action visible so a learner can return to the curriculum without relying on browser history.
 
+### Supplementary Study
+
+- Place optional deep dives below the main lesson sequence, not between required lessons.
+- Use a dashed divider and an explicit supplementary label so the different commitment level is clear.
+- Keep supplementary lessons fully navigable and readable with the same lesson page patterns as core lessons.
+- Use supplementary material for experiments, internals, and alternate explanations; do not use it to disguise incomplete required content.
+
 ## Interaction and Motion
 
 - Keep transitions between 180ms and 300ms for hover and focus-adjacent movement.

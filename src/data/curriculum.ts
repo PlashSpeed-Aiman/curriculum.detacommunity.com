@@ -4,6 +4,8 @@ export interface CurriculumLesson {
   title: string
   summary: string
   contentFile: string
+  readTime: string
+  category: string
 }
 
 export interface CurriculumModule {
@@ -13,6 +15,7 @@ export interface CurriculumModule {
   title: string
   summary: string
   lessons: CurriculumLesson[]
+  supplementaryLessons?: CurriculumLesson[]
 }
 
 export interface CurriculumTrack {
@@ -77,6 +80,8 @@ export const curriculumSubjects: CurriculumSubject[] = [
             title: 'Setup and run your first application',
             summary: 'Install Docker, verify the CLI, and run a container from an image.',
             contentFile: 'docker-basics.md',
+            readTime: '10 min',
+            category: 'Docker / foundations',
           },
         ],
       },
@@ -86,7 +91,46 @@ export const curriculumSubjects: CurriculumSubject[] = [
         slug: 'dockerfiles',
         title: 'Dockerfiles',
         summary: 'Package an application with repeatable image instructions.',
-        lessons: [],
+        lessons: [
+          {
+            id: 'dockerfiles-first-image',
+            slug: 'first-image',
+            title: 'Write your first Dockerfile',
+            summary: 'Turn a small web page into a custom image and run it as a container.',
+            contentFile: 'dockerfile-first-image.md',
+            readTime: '12 min',
+            category: 'Docker / Dockerfiles',
+          },
+          {
+            id: 'dockerfiles-build-context',
+            slug: 'build-context-and-cache',
+            title: 'Understand build context and cache',
+            summary: 'Keep builds safe and fast by controlling context, layers, and cache invalidation.',
+            contentFile: 'dockerfile-build-context-and-cache.md',
+            readTime: '15 min',
+            category: 'Docker / Dockerfiles',
+          },
+          {
+            id: 'dockerfiles-multi-stage-production',
+            slug: 'multi-stage-production',
+            title: 'Build a smaller production image',
+            summary: 'Separate build tools from runtime files with a multi-stage Dockerfile.',
+            contentFile: 'dockerfile-multi-stage-production.md',
+            readTime: '18 min',
+            category: 'Docker / Dockerfiles',
+          },
+        ],
+        supplementaryLessons: [
+          {
+            id: 'dockerfiles-image-layers-deep-dive',
+            slug: 'image-layers-deep-dive',
+            title: 'Deep-dive: diffing image layers',
+            summary: 'Inspect build history, layer archives, whiteouts, and container changes step by step.',
+            contentFile: 'dockerfile-image-layers-deep-dive.md',
+            readTime: '20 min',
+            category: 'Docker / deep dive',
+          },
+        ],
       },
       {
         id: 'docker-compose',

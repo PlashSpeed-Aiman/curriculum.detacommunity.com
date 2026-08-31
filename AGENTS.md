@@ -19,7 +19,7 @@ Before changing the product, read this file and [`style-guide.md`](style-guide.m
 - Routing: `src/router/index.ts` provides `/`, `/curriculum`, subject, module, track, and lesson routes.
 - Typed sample curriculum data: `src/data/curriculum.ts`, including Docker modules, mobile development tracks, and Backend development modules.
 - Authored lesson content: `src/content/*.md`, rendered with `marked` in the lesson view.
-- Current content status: Docker has one authored lesson; Mobile app development has Android and Flutter placeholders; Backend development has placeholder modules.
+- Current content status: Docker has authored lessons in its basics and Dockerfiles modules; Mobile app development has Android and Flutter placeholders; Backend development has placeholder modules.
 - No application state library, backend, API client, test runner, or linter is configured yet.
 - The package name is `curiculum`; use “Curriculum” in user-facing copy unless the product name is intentionally changed.
 
@@ -92,6 +92,7 @@ Flow rules:
 ## State Contract
 
 - A module with lessons offers an active lesson link. A module with `lessons: []` opens its module page and shows a clear “Coming next” placeholder instead of invented content.
+- A module may include optional `supplementaryLessons`; render them below the required sequence with an explicit label and keep them fully routable when authored.
 - A track with `status: 'placeholder'` opens its track route and shows “Coming soon” copy. Do not make an unavailable track look complete.
 - A missing course, module, track, or lesson shows a useful not-found state with a route back to the curriculum.
 - An authored lesson requires a `contentFile` that resolves to a file in `src/content/`. Keep its page title in the Vue view and begin the Markdown body at `h2`.
@@ -102,7 +103,7 @@ Flow rules:
 - `src/views/HomeView.vue`: public landing page and visual introduction.
 - `src/views/CurriculumView.vue`: course directory, expandable course details, and module/track links.
 - `src/views/SubjectView.vue`: one course overview. Keep the existing filename until a deliberate type/file rename is planned.
-- `src/views/ModuleView.vue`: ordered lesson list and empty-module state.
+- `src/views/ModuleView.vue`: ordered lesson list, supplementary lesson section, and empty-module state.
 - `src/views/TrackView.vue`: alternative-track placeholder or future track overview.
 - `src/views/LessonView.vue`: lesson header, Markdown rendering, breadcrumbs, and lesson navigation.
 - `src/data/curriculum.ts`: typed course, module, track, and lesson metadata. Keep authored prose out of this file.
