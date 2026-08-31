@@ -84,6 +84,17 @@ export const curriculumSubjects: CurriculumSubject[] = [
             category: 'Docker / foundations',
           },
         ],
+        supplementaryLessons: [
+          {
+            id: 'docker-basics-mysql-dbeaver',
+            slug: 'mysql-with-dbeaver',
+            title: 'Run MySQL with Docker and query it with DBeaver',
+            summary: 'Start a persistent MySQL container, connect with DBeaver, and run your first queries.',
+            contentFile: 'docker-mysql-dbeaver.md',
+            readTime: '20 min',
+            category: 'Docker / databases',
+          },
+        ],
       },
       {
         id: 'dockerfiles',
