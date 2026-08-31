@@ -29,4 +29,4 @@ npm run preview
 - `/curriculum/backend-development` - Backend development overview
 - `/curriculum/backend-development/aspnet-core` - ASP.NET Core module placeholder
 
-Sample curriculum data is stored in `src/data/curriculum.ts`. Lesson prose is stored in `src/content/*.md` and rendered with `marked`. Product and implementation guidance lives in [`AGENTS.md`](AGENTS.md).
+Sample curriculum data is stored in `src/data/curriculum.ts`. Lesson prose is stored in `src/content/*.md` and rendered with `marked`. See the [lesson contribution guidelines](lesson-contribution-guidelines.md) for adding authored Markdown lessons. Product and implementation guidance lives in [`AGENTS.md`](AGENTS.md).
