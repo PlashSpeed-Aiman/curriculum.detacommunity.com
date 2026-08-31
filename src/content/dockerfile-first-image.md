@@ -132,3 +132,10 @@ tags remain available with `docker image ls curriculum-site`.
 - Why does `--publish 8080:80` contain two ports?
 - What is the difference between an image and the container created from it?
 - Where would you change the Dockerfile if the web server needed a different document root?
+
+## Builder note
+
+If `docker image ls curriculum-site` comes back empty after a build, your default builder is
+probably using the `docker-container` driver, which keeps results only in the build cache. Rerun
+the build with `docker buildx build --load` in place of `docker build` so the result is imported
+into the local image store, where `docker run` can find it.

@@ -116,3 +116,10 @@ the server configuration required for the second request to work.
 
 Dockerfiles describe how an image is built. The next module will describe how several containers work
 together, including networking, volumes, and local development with Docker Compose.
+
+## Builder note
+
+If `docker image ls curriculum-site` comes back empty after a build, your default builder is
+probably using the `docker-container` driver, which keeps results only in the build cache. Rerun
+the build with `docker buildx build --load` in place of `docker build` so the result is imported
+into the local image store.

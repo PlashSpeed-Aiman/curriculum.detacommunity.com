@@ -107,3 +107,10 @@ experimenting.
 - Why should dependency manifests often be copied before application source?
 - What happens when a file in a layer is deleted by a later instruction?
 - Why is `.dockerignore` useful even when a repository already has `.gitignore`?
+
+## Builder note
+
+If `docker image ls cache-example` comes back empty after a build, your default builder is
+probably using the `docker-container` driver, which keeps results only in the build cache. Rerun
+the build with `docker buildx build --load` in place of `docker build` so the result is imported
+into the local image store.
