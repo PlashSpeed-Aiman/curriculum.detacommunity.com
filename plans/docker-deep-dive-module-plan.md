@@ -106,6 +106,61 @@ a deliberate scope decision recorded here first:
 - Registry internals, image signing/SBOM — security-adjacent but a different focus than "how does a
   running container work."
 
+## Reading list
+
+Consolidated from the per-lesson "Research before writing" notes above, grouped by type. Read the
+primary specs/man pages regardless of which lessons you start with — they're the ground truth the
+books and articles are themselves built on.
+
+### Books
+
+- *The Linux Programming Interface* — Michael Kerrisk (No Starch Press). Foundation for namespaces,
+  capabilities, and chroot/mount at the system-call level. Read the namespaces/capabilities/chroot
+  chapters, not necessarily cover to cover. Supports lessons 1, 4, 6.
+- *Container Security* — Liz Rice (O'Reilly, 2020). Revisits namespaces, cgroups, capabilities, and
+  seccomp through a security lens — a good second pass after TLPI. Supports lessons 1, 2, 6.
+- *Docker Deep Dive* — Nigel Poulton (self-published, revised regularly). Tool-side internals; useful
+  for cross-checking runtime-chain claims once the kernel layer underneath is clear. Supports lesson 5.
+- *Docker in Action*, 2nd ed. — Jeff Nickoloff & Stephen Kuenzli (Manning). Less kernel-focused;
+  useful for verifying day-to-day CLI/runtime behavior.
+- Deferred, not for this module: *Kubernetes: Up and Running* — Burns, Beda, Hightower (O'Reilly).
+  Only relevant once an orchestration module is scoped (see non-goals above).
+
+### Primary specs & references (read these directly, not summaries of them)
+
+- man7.org: `namespaces(7)`, `cgroups(7)`, `capabilities(7)`, `pivot_root(2)`, `unshare(1)`,
+  `nsenter(1)`, `seccomp(2)`, `veth(4)` — same author as TLPI, the canonical reference for lessons
+  1, 4, 6, 7.
+- kernel.org `Documentation/admin-guide/cgroup-v2.rst` — the actual cgroups v2 spec. Lesson 2.
+- GitHub `opencontainers/runtime-spec` and `opencontainers/image-spec` — the standards runc,
+  containerd, and Docker implement. Lesson 5.
+- `containerd/containerd` docs folder and runc's README — primary source for the dockerd →
+  containerd → runc chain. Lesson 5.
+- docs.docker.com architecture docs — confirm the *current* dockerd/containerd relationship here;
+  it has shifted since the 2017 containerd donation, don't rely on an older secondary source for
+  that detail.
+
+### Long-form articles
+
+- Michael Kerrisk, "Namespaces in operation" series on LWN.net (2013, multi-part). The definitive
+  plain-language walkthrough of each namespace type. Supports lesson 1.
+- LWN.net's cgroups v2 rollout coverage — companion reading alongside the kernel doc above.
+
+### Academic paper
+
+- Felter, Ferreira, Rajamony, Rubio, "An Updated Performance Comparison of Virtual Machines and
+  Linux Containers" (IBM Research / IEEE ISPASS 2015). The standard citation behind any
+  "containers vs. VMs" performance claim — useful for framing even though it isn't tied to one
+  numbered lesson.
+
+### Talk (not reading, but paired with the above)
+
+- Liz Rice, "Containers From Scratch" — anchor source for lesson 4.
+
+No live URLs are recorded here since none were fetched and verified in this session — search each
+title/author against man7.org, kernel.org, LWN.net, or the named GitHub org rather than trusting a
+pasted link found elsewhere.
+
 ## Open questions to settle after your reading pass
 
 - Does "build a container by hand" (lesson 4) land better *before* the individual namespaces/cgroups
