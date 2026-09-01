@@ -1,13 +1,14 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router'
 import { curriculumSubjects } from '../data/curriculum'
+import Group2 from '../assets/Group 2.svg'
 </script>
 
 <template>
   <div id="top" class="site-shell">
     <header class="site-header">
       <RouterLink class="brand" to="/" aria-label="Curriculum home">
-        <span class="brand-symbol" aria-hidden="true">c/</span>
+        <img :src="Group2" class="brand-symbol" aria-hidden="true"/>
         <span>curriculum</span><span class="brand-dot">.</span>
       </RouterLink>
 
@@ -200,3 +201,4 @@ import { curriculumSubjects } from '../data/curriculum'
     </footer>
   </div>
 </template>
+

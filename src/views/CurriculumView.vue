@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import { RouterLink } from 'vue-router'
 import { curriculumSubjects, type CurriculumSubject } from '../data/curriculum'
+import Group2 from "../assets/Group 2.svg";
 
 const expandedSubject = ref<string | null>(null)
 
@@ -18,7 +19,7 @@ function hasExpandableContent(subject: CurriculumSubject) {
   <div class="directory-shell">
     <header class="directory-header">
       <RouterLink class="brand" to="/" aria-label="Curriculum home">
-        <span class="brand-symbol" aria-hidden="true">c/</span>
+        <img :src="Group2" class="brand-symbol" aria-hidden="true"/>
         <span>curriculum</span><span class="brand-dot">.</span>
       </RouterLink>
       <RouterLink class="text-link" to="/">

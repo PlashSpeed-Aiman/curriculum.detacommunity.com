@@ -2,6 +2,7 @@
 import { computed } from 'vue'
 import { RouterLink, useRoute } from 'vue-router'
 import { curriculumSubjects } from '../data/curriculum'
+import Group2 from "../assets/Group 2.svg";
 
 const route = useRoute()
 const subjectSlug = computed(() => String(route.params.subjectSlug))
@@ -13,7 +14,7 @@ const moduleCount = computed(() => subject.value?.modules?.length ?? 0)
   <div class="study-shell">
     <header class="directory-header">
       <RouterLink class="brand" to="/" aria-label="Curriculum home">
-        <span class="brand-symbol" aria-hidden="true">c/</span>
+        <img :src="Group2" class="brand-symbol" aria-hidden="true"/>
         <span>curriculum</span><span class="brand-dot">.</span>
       </RouterLink>
       <nav class="study-breadcrumbs" aria-label="Breadcrumb">
