@@ -237,15 +237,16 @@ export const curriculumSubjects: CurriculumSubject[] = [
         id: 'android',
         slug: 'android',
         title: 'Android',
-        summary: 'Learn the native Android layer with Kotlin and Jetpack, then carry your mobile foundations into Flutter when the product calls for it.',
+        summary: 'Learn the classical Android stack for maintaining existing applications, then build new features with Kotlin and modern Jetpack tools.',
         status: 'placeholder',
         routeLabel: 'Native Android path',
         stack: 'Kotlin + Jetpack',
         sharedFoundations: mobileSharedFoundations,
         focusAreas: [
-          'Kotlin and the Android toolchain',
+          'Classical Android: Views, XML, fragments, and legacy maintenance',
+          'Legacy libraries and incremental migration',
+          'Modern Android: Kotlin, Jetpack Compose, and declarative UI',
           'Lifecycle, configuration, permissions, and platform APIs',
-          'Jetpack Compose, architecture, and native UI',
         ],
         companionSlug: 'flutter',
         handoff: 'If you start in Flutter, your instincts for UI composition, state, async work, and API-driven screens carry over. Android adds the platform lifecycle, Kotlin, Jetpack, and native tooling.',
@@ -257,39 +258,88 @@ export const curriculumSubjects: CurriculumSubject[] = [
             summary: 'Set up a dependable project and learn the platform concepts every production feature rests on.',
             lessons: [
               'Android Studio, SDKs, emulators, and a production-ready project structure',
-              'Kotlin essentials for Android: null safety, sealed types, extensions, and immutability',
+              'Kotlin essentials and Java/Kotlin interop for reading and extending Android codebases',
               'App components, lifecycle, configuration changes, and process death',
-              'Debugging with Logcat, Compose previews, the debugger, and device tools',
+              'Debugging with Logcat, previews, the debugger, and device tools',
+            ],
+          },
+          {
+            id: 'android-views-xml',
+            number: '02',
+            title: 'Classical Android views and XML layouts',
+            summary: 'Maintain the View-based UI stack found in established applications and understand how screens become real views.',
+            lessons: [
+              'XML resources, styles, themes, dimensions, and resource qualifiers',
+              'Views, ViewGroups, and inflating layouts with LayoutInflater',
+              'View Binding, Data Binding, and incremental migration in an existing app',
+              'RecyclerView, adapters, ViewHolders, and custom views',
+            ],
+          },
+          {
+            id: 'android-fragments-navigation',
+            number: '03',
+            title: 'Classical activities, fragments, and navigation',
+            summary: 'Trace screen behavior through the Activity and Fragment APIs so legacy navigation can be fixed without guesswork.',
+            lessons: [
+              'Activity and Fragment lifecycles, FragmentManager, transactions, and the back stack',
+              'Fragment arguments, FragmentResult, saved state, and configuration changes',
+              'Navigation Component, XML graphs, deep links, and legacy back stacks',
+              'Common fragment bugs: view lifecycles, state loss, leaks, and retained references',
+            ],
+          },
+          {
+            id: 'android-async-migration',
+            number: '04',
+            title: 'Legacy async work and modern replacements',
+            summary: 'Maintain older concurrency code safely, then choose the right modern primitive when replacing it.',
+            lessons: [
+              'AsyncTask: lifecycle, cancellation, thread boundaries, and why it was deprecated',
+              'Threads, Handler, Looper, callbacks, and RxJava in existing applications',
+              'Replacing AsyncTask with Kotlin coroutines, lifecycleScope, viewModelScope, and dispatchers',
+              'Choosing between Flow, WorkManager, and foreground work for modern Android behavior',
+            ],
+          },
+          {
+            id: 'android-legacy-migrations',
+            number: '05',
+            title: 'Legacy libraries and migration bridges',
+            summary: 'Recognize the dependencies and patterns found in older apps, then modernize them incrementally without a risky rewrite.',
+            lessons: [
+              'Android support libraries, AndroidX migration, Kotlin synthetics, and ButterKnife cleanup',
+              'RxJava and LiveData in existing codebases, including boundaries with coroutines and Flow',
+              'Manual Dagger components, scopes, and a step-by-step migration to Hilt',
+              'Data Binding to View Binding or Compose, SharedPreferences to DataStore, and SQLiteOpenHelper to Room',
+              'Activity Result APIs and other small migrations that reduce deprecated platform usage',
             ],
           },
           {
             id: 'android-compose-ui',
-            number: '02',
-            title: 'Compose UI and design systems',
-            summary: 'Build a consistent interface with a declarative UI model that scales beyond a single screen.',
+            number: '06',
+            title: 'Modern Android UI with Compose',
+            summary: 'Build new screens with a declarative UI model while keeping a clear bridge to existing View-based code.',
             lessons: [
+              'Compose and Views together: ComposeView, AndroidView, and incremental migration',
               'Composition, recomposition, and state in Jetpack Compose',
               'Material 3 theming, typography, color, and reusable components',
-              'Responsive layouts for phones, tablets, and foldables',
-              'Accessibility with semantics, TalkBack, touch targets, and contrast',
+              'Responsive layouts and accessibility for phones, tablets, and foldables',
             ],
           },
           {
             id: 'android-architecture-navigation',
-            number: '03',
-            title: 'Architecture and navigation',
-            summary: 'Make screen behavior predictable with explicit state, feature boundaries, and resilient navigation.',
+            number: '07',
+            title: 'Modern architecture and navigation',
+            summary: 'Make new screen behavior predictable with explicit state, feature boundaries, and resilient navigation.',
             lessons: [
               'Navigation Compose, back stack behavior, and deep links',
               'MVVM in Android: separating UI, ViewModel, UI state, and domain responsibilities',
-              'ViewModel, StateFlow, and unidirectional data flow',
+              'ViewModel, StateFlow, coroutines, and unidirectional data flow',
               'Loading, error, empty, and success states as a deliberate UI contract',
               'Feature boundaries, dependency direction, and maintainable packages',
             ],
           },
           {
             id: 'android-networking',
-            number: '04',
+            number: '08',
             title: 'Networking and API integration',
             summary: 'Connect the app to a real service without leaking transport details into the UI.',
             lessons: [
@@ -301,7 +351,7 @@ export const curriculumSubjects: CurriculumSubject[] = [
           },
           {
             id: 'android-local-data',
-            number: '05',
+            number: '09',
             title: 'Local data and offline-first behavior',
             summary: 'Give the app useful behavior when the network is slow, absent, or inconsistent.',
             lessons: [
@@ -313,7 +363,7 @@ export const curriculumSubjects: CurriculumSubject[] = [
           },
           {
             id: 'android-background-work',
-            number: '06',
+            number: '10',
             title: 'Dependency injection and background work',
             summary: 'Move work out of the UI safely and make dependencies explicit from development to release.',
             lessons: [
@@ -325,7 +375,7 @@ export const curriculumSubjects: CurriculumSubject[] = [
           },
           {
             id: 'android-testing',
-            number: '07',
+            number: '11',
             title: 'Testing and engineering confidence',
             summary: 'Test the behavior that matters without making the codebase slow or brittle to change.',
             lessons: [
@@ -337,7 +387,7 @@ export const curriculumSubjects: CurriculumSubject[] = [
           },
           {
             id: 'android-production-quality',
-            number: '08',
+            number: '12',
             title: 'Performance, security, and resilience',
             summary: 'Find the issues users feel in production and protect the data and trust they bring to the app.',
             lessons: [
@@ -349,7 +399,7 @@ export const curriculumSubjects: CurriculumSubject[] = [
           },
           {
             id: 'android-release-operations',
-            number: '09',
+            number: '13',
             title: 'Release and operations',
             summary: 'Turn a working app into a release process that can be repeated, observed, and safely rolled back.',
             lessons: [
@@ -365,14 +415,15 @@ export const curriculumSubjects: CurriculumSubject[] = [
         id: 'flutter',
         slug: 'flutter',
         title: 'Flutter',
-        summary: 'Build cross-platform apps with Dart and Flutter, while keeping a clear path into native Android when the platform matters.',
+        summary: 'Maintain established Flutter applications across older Dart and Flutter APIs, then build new features with current widgets, state, and platform tools.',
         status: 'placeholder',
         routeLabel: 'Cross-platform path',
         stack: 'Dart + Flutter',
         sharedFoundations: mobileSharedFoundations,
         focusAreas: [
           'Dart and the Flutter toolchain',
-          'Widgets, rendering, layout, and platform channels',
+          'Legacy Flutter maintenance and incremental migration',
+          'Widgets, rendering, state management, and platform channels',
           'Shared product code, responsive UI, and cross-platform release',
         ],
         companionSlug: 'android',
@@ -391,8 +442,21 @@ export const curriculumSubjects: CurriculumSubject[] = [
             ],
           },
           {
-            id: 'flutter-ui-design-systems',
+            id: 'flutter-legacy-migrations',
             number: '02',
+            title: 'Legacy Flutter codebases and migration bridges',
+            summary: 'Read older Flutter apps confidently and migrate Dart, navigation, plugins, and Material APIs without a full rewrite.',
+            lessons: [
+              'Pre-null-safety Dart, old Flutter project structures, and dependency upgrades',
+              'Android embedding v1 to v2, plugin APIs, and platform channels',
+              'Imperative Navigator 1.0, named routes, and migration toward Router or go_router',
+              'Legacy Material APIs such as RaisedButton, FlatButton, and WillPopScope',
+              'Callback-heavy async code, FutureBuilder, StreamBuilder, and incremental refactoring',
+            ],
+          },
+          {
+            id: 'flutter-ui-design-systems',
+            number: '03',
             title: 'Widget UI and design systems',
             summary: 'Build a consistent interface with composable widgets and layouts that adapt across mobile form factors.',
             lessons: [
@@ -403,21 +467,35 @@ export const curriculumSubjects: CurriculumSubject[] = [
             ],
           },
           {
+            id: 'flutter-state-management',
+            number: '04',
+            title: 'State management: compare and choose',
+            summary: 'Understand the trade-offs between local state, Streams, Provider, Riverpod, and BLoC before standardizing a feature.',
+            lessons: [
+              'Local state with setState, ValueNotifier, and ChangeNotifier',
+              'Streams and StreamController: events, subscriptions, cancellation, and asynchronous state',
+              'Provider and InheritedWidget: dependency propagation, rebuilds, and legacy code',
+              'Riverpod providers, AsyncValue, scoping, lifecycle, and testing',
+              'BLoC and RxDart compared with plain Streams, Provider, and Riverpod',
+              'Choosing a state model for local, shared, server, and form state',
+            ],
+          },
+          {
             id: 'flutter-architecture-navigation',
-            number: '03',
-            title: 'Architecture, state, and navigation',
+            number: '05',
+            title: 'Architecture and navigation',
             summary: 'Make screen behavior predictable with explicit state, feature boundaries, and resilient cross-platform navigation.',
             lessons: [
               'Declarative navigation, back stack behavior, and deep links',
               'MVVM in Flutter: ViewModels, UI state, and view responsibilities',
-              'State ownership and dependency injection with Riverpod',
+              'Dependency injection, repositories, and use-case orchestration',
               'Loading, error, empty, and success states as a deliberate UI contract',
               'Feature boundaries, dependency direction, and maintainable packages',
             ],
           },
           {
             id: 'flutter-networking',
-            number: '04',
+            number: '06',
             title: 'Networking and API integration',
             summary: 'Connect the app to a real service without leaking transport details into widgets or ViewModels.',
             lessons: [
@@ -429,7 +507,7 @@ export const curriculumSubjects: CurriculumSubject[] = [
           },
           {
             id: 'flutter-local-data',
-            number: '05',
+            number: '07',
             title: 'Local data and offline-first behavior',
             summary: 'Give the app useful behavior when the network is slow, absent, or inconsistent on either platform.',
             lessons: [
@@ -441,7 +519,7 @@ export const curriculumSubjects: CurriculumSubject[] = [
           },
           {
             id: 'flutter-platform-integration',
-            number: '06',
+            number: '08',
             title: 'Platform integration and background work',
             summary: 'Know when shared Dart code is enough and when the native Android or iOS layer should take over.',
             lessons: [
@@ -453,7 +531,7 @@ export const curriculumSubjects: CurriculumSubject[] = [
           },
           {
             id: 'flutter-testing',
-            number: '07',
+            number: '09',
             title: 'Testing and engineering confidence',
             summary: 'Test shared behavior and platform edges without making the codebase slow or brittle to change.',
             lessons: [
@@ -466,7 +544,7 @@ export const curriculumSubjects: CurriculumSubject[] = [
           },
           {
             id: 'flutter-production-quality',
-            number: '08',
+            number: '10',
             title: 'Performance, security, and resilience',
             summary: 'Find the issues users feel in production and protect the data and trust they bring to the app.',
             lessons: [
@@ -478,7 +556,7 @@ export const curriculumSubjects: CurriculumSubject[] = [
           },
           {
             id: 'flutter-release-operations',
-            number: '09',
+            number: '11',
             title: 'Cross-platform release and operations',
             summary: 'Turn a shared codebase into a release process that can be repeated, observed, and safely rolled back.',
             lessons: [
