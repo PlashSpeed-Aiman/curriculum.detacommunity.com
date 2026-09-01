@@ -141,6 +141,15 @@ export const curriculumSubjects: CurriculumSubject[] = [
             readTime: '20 min',
             category: 'Docker / deep dive',
           },
+          {
+            id: 'dockerfiles-instructions-and-build-arguments',
+            slug: 'instructions-and-build-arguments',
+            title: 'Reference: Dockerfile instructions and build arguments',
+            summary: 'Choose instructions deliberately, scope ARGs correctly, and keep configuration and secrets out of the wrong layer.',
+            contentFile: 'dockerfile-instructions-and-build-arguments.md',
+            readTime: '25 min',
+            category: 'Docker / reference',
+          },
         ],
       },
       {

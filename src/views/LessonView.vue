@@ -7,6 +7,7 @@ import dockerMysqlDbeaverMarkdown from '../content/docker-mysql-dbeaver.md?raw'
 import dockerfileBuildContextAndCacheMarkdown from '../content/dockerfile-build-context-and-cache.md?raw'
 import dockerfileFirstImageMarkdown from '../content/dockerfile-first-image.md?raw'
 import dockerfileImageLayersDeepDiveMarkdown from '../content/dockerfile-image-layers-deep-dive.md?raw'
+import dockerfileInstructionsAndBuildArgumentsMarkdown from '../content/dockerfile-instructions-and-build-arguments.md?raw'
 import dockerfileMultiStageProductionMarkdown from '../content/dockerfile-multi-stage-production.md?raw'
 import dockerComposeYamlMarkdown from '../content/docker-compose-yaml.md?raw'
 import dockerComposeFirstProjectMarkdown from '../content/docker-compose-first-project.md?raw'
@@ -53,6 +54,7 @@ const markdownByFile: Record<string, string> = {
   'dockerfile-build-context-and-cache.md': dockerfileBuildContextAndCacheMarkdown,
   'dockerfile-first-image.md': dockerfileFirstImageMarkdown,
   'dockerfile-image-layers-deep-dive.md': dockerfileImageLayersDeepDiveMarkdown,
+  'dockerfile-instructions-and-build-arguments.md': dockerfileInstructionsAndBuildArgumentsMarkdown,
   'dockerfile-multi-stage-production.md': dockerfileMultiStageProductionMarkdown,
   'docker-compose-yaml.md': dockerComposeYamlMarkdown,
   'docker-compose-first-project.md': dockerComposeFirstProjectMarkdown,
