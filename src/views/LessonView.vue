@@ -3,6 +3,7 @@ import { computed } from 'vue'
 import { marked } from 'marked'
 import { RouterLink, useRoute } from 'vue-router'
 import dockerBasicsMarkdown from '../content/docker-basics.md?raw'
+import dockerBasicsWhatIsDockerMarkdown from '../content/docker-basics-what-is-docker.md?raw'
 import dockerMysqlDbeaverMarkdown from '../content/docker-mysql-dbeaver.md?raw'
 import dockerfileBuildContextAndCacheMarkdown from '../content/dockerfile-build-context-and-cache.md?raw'
 import dockerfileFirstImageMarkdown from '../content/dockerfile-first-image.md?raw'
@@ -52,6 +53,7 @@ const lessonPosition = computed(() => {
 })
 const markdownByFile: Record<string, string> = {
   'docker-basics.md': dockerBasicsMarkdown,
+  'docker-basics-what-is-docker.md': dockerBasicsWhatIsDockerMarkdown,
   'docker-mysql-dbeaver.md': dockerMysqlDbeaverMarkdown,
   'dockerfile-build-context-and-cache.md': dockerfileBuildContextAndCacheMarkdown,
   'dockerfile-first-image.md': dockerfileFirstImageMarkdown,

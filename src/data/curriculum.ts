@@ -94,6 +94,15 @@ export const curriculumSubjects: CurriculumSubject[] = [
             readTime: '20 min',
             category: 'Docker / databases',
           },
+          {
+            id: 'docker-basics-what-is-docker',
+            slug: 'what-is-docker',
+            title: 'If your friend asks what is Docker? Tell them this',
+            summary: 'Explain Docker in plain words: the problems it solves, images and containers, and the Linux namespaces and cgroups underneath.',
+            contentFile: 'docker-basics-what-is-docker.md',
+            readTime: '12 min',
+            category: 'Docker / foundations',
+          },
         ],
       },
       {
