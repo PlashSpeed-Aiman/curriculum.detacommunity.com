@@ -18,6 +18,9 @@ import dockerComposeVolumesMarkdown from '../content/docker-compose-volumes.md?r
 import dockerComposeConfigurationReadinessMarkdown from '../content/docker-compose-configuration-readiness.md?raw'
 import dockerComposeExternalNetworksMarkdown from '../content/docker-compose-external-networks.md?raw'
 import dockerComposeLogRotationWarStoryMarkdown from '../content/docker-compose-log-rotation-war-story.md?raw'
+import webFoundationsHttpExchangeMarkdown from '../content/web-foundations-http-exchange.md?raw'
+import webFoundationsStatusCodesMarkdown from '../content/web-foundations-status-codes.md?raw'
+import webFoundationsJsonOnTheWireMarkdown from '../content/web-foundations-json-on-the-wire.md?raw'
 import { curriculumSubjects } from '../data/curriculum'
 import Group2 from "../assets/Group 2.svg";
 
@@ -68,6 +71,9 @@ const markdownByFile: Record<string, string> = {
   'docker-compose-configuration-readiness.md': dockerComposeConfigurationReadinessMarkdown,
   'docker-compose-external-networks.md': dockerComposeExternalNetworksMarkdown,
   'docker-compose-log-rotation-war-story.md': dockerComposeLogRotationWarStoryMarkdown,
+  'web-foundations-http-exchange.md': webFoundationsHttpExchangeMarkdown,
+  'web-foundations-status-codes.md': webFoundationsStatusCodesMarkdown,
+  'web-foundations-json-on-the-wire.md': webFoundationsJsonOnTheWireMarkdown,
 }
 const lessonHtml = computed(() => {
   const markdown = lesson.value ? markdownByFile[lesson.value.contentFile] : undefined
