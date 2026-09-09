@@ -38,7 +38,7 @@ There was the smoking gun, a single container log file holding roughly 11 GB:
 11123085312  .../containers/23ae300e8be1.../23ae300e8be1...-json.log
 ```
 
-The file belonged to the `connex-mongodb` container, which ran `mongo:7`.
+The file belonged to the `propex-mongodb` container, which ran `mongo:7`.
 
 ### Stage 2: understand why MongoDB was crashing
 
@@ -69,7 +69,7 @@ sudo truncate -s 0 .../23ae300e8be1...-json.log
 The disk went from 100% to roughly 65% used, and the database container recovered on its own:
 
 ```
-connex-mongodb  Up 4 days (healthy)
+propex-mongodb  Up 4 days (healthy)
 ```
 
 ### Stage 4: the lasting fix
@@ -108,7 +108,7 @@ On a Linux host with the default data root, container logs live under `/var/lib/
 but the exact layout is not something you should memorize. Ask Docker where the file is instead:
 
 ```bash
-docker inspect --format '{{.LogPath}}' connex-mongodb
+docker inspect --format '{{.LogPath}}' propex-mongodb
 ```
 
 Two details made MongoDB fail first instead of merely degrading. Both are documented MongoDB behavior,
