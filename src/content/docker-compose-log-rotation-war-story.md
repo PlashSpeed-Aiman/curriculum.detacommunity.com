@@ -80,10 +80,15 @@ Log rotation was added to the Compose file. The container was then recreated:
 docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d mongodb
 ```
 
-`docker inspect` confirmed the new configuration on the recreated container:
+The logging options live under `HostConfig` in the inspect output, so that is where the recreated
+container was checked:
+
+```bash
+docker inspect --format '{{json .HostConfig.LogConfig}}' propex-mongodb
+```
 
 ```json
-"LogConfig": {
+{
     "Type": "json-file",
     "Config": {
         "max-file": "3",

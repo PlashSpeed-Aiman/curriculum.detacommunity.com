@@ -8,6 +8,7 @@ import dockerfileBuildContextAndCacheMarkdown from '../content/dockerfile-build-
 import dockerfileFirstImageMarkdown from '../content/dockerfile-first-image.md?raw'
 import dockerfileImageLayersDeepDiveMarkdown from '../content/dockerfile-image-layers-deep-dive.md?raw'
 import dockerfileInstructionsAndBuildArgumentsMarkdown from '../content/dockerfile-instructions-and-build-arguments.md?raw'
+import dockerfileSecretsEnvArgMarkdown from '../content/dockerfile-secrets-env-arg.md?raw'
 import dockerfileMultiStageProductionMarkdown from '../content/dockerfile-multi-stage-production.md?raw'
 import dockerComposeYamlMarkdown from '../content/docker-compose-yaml.md?raw'
 import dockerComposeFirstProjectMarkdown from '../content/docker-compose-first-project.md?raw'
@@ -56,6 +57,7 @@ const markdownByFile: Record<string, string> = {
   'dockerfile-first-image.md': dockerfileFirstImageMarkdown,
   'dockerfile-image-layers-deep-dive.md': dockerfileImageLayersDeepDiveMarkdown,
   'dockerfile-instructions-and-build-arguments.md': dockerfileInstructionsAndBuildArgumentsMarkdown,
+  'dockerfile-secrets-env-arg.md': dockerfileSecretsEnvArgMarkdown,
   'dockerfile-multi-stage-production.md': dockerfileMultiStageProductionMarkdown,
   'docker-compose-yaml.md': dockerComposeYamlMarkdown,
   'docker-compose-first-project.md': dockerComposeFirstProjectMarkdown,

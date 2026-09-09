@@ -150,6 +150,15 @@ export const curriculumSubjects: CurriculumSubject[] = [
             readTime: '25 min',
             category: 'Docker / reference',
           },
+          {
+            id: 'dockerfiles-secrets-env-arg',
+            slug: 'secrets-env-arg',
+            title: 'How to host a buffet for your attackers: secrets, ENV, and ARG in Dockerfiles',
+            summary: 'Watch a token passed through ENV and ARG surface in image history, metadata, and layers, then see secret mounts and multi-stage builds close the door.',
+            contentFile: 'dockerfile-secrets-env-arg.md',
+            readTime: '16 min',
+            category: 'Docker / deep dive',
+          },
         ],
       },
       {
