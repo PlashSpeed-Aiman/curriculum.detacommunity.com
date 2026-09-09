@@ -214,6 +214,17 @@ export const curriculumSubjects: CurriculumSubject[] = [
             category: 'Docker / Compose',
           },
         ],
+        supplementaryLessons: [
+          {
+            id: 'docker-compose-log-rotation-war-story',
+            slug: 'log-rotation-war-story',
+            title: 'War story: the 11 GB container log that filled the disk',
+            summary: 'Follow a MongoDB crash loop back to unrotated json-file logs, then apply Compose log rotation that would have prevented it.',
+            contentFile: 'docker-compose-log-rotation-war-story.md',
+            readTime: '14 min',
+            category: 'Docker / Compose',
+          },
+        ],
       },
       {
         id: 'docker-deep-dive',
