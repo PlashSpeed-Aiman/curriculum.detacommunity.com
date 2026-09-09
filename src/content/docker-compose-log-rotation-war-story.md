@@ -200,8 +200,15 @@ docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d mongodb
 ```
 
 The stack ran from two files. Compose merges files in the order they appear on the command line, and
-later files may override or add to earlier ones: for a single-value option such as `image`, the later
-value replaces the earlier one, while multi-value fields merge with local values taking precedence.
+later files may override or add to earlier ones. How a field merges depends on its kind:
+
+- A single-value option such as `image`, `command`, or `mem_limit` is replaced outright by the later
+  value.
+- The multi-value options `ports`, `expose`, `external_links`, `dns`, `dns_search`, and `tmpfs` are
+  concatenated: both sets of values survive.
+- `environment`, `labels`, `volumes`, and `devices` merge by key — the variable name for the first
+  two, the container mount path for the last two — with locally defined entries taking precedence.
+
 File order is therefore part of the configuration. A stray edit to the wrong file can silently change
 which settings win, which is another reason the backup and the `docker compose config` check mattered.
 
@@ -251,8 +258,8 @@ server you cannot afford to interrupt.
 
 ## Primary references
 
-- [JSON File logging driver](https://docs.docker.com/config/containers/logging/json-file/)
-- [Configure logging drivers](https://docs.docker.com/config/containers/logging/configure/)
+- [JSON File logging driver](https://docs.docker.com/engine/logging/drivers/json-file/)
+- [Configure logging drivers](https://docs.docker.com/engine/logging/configure/)
 - [Compose service reference: `logging`](https://docs.docker.com/reference/compose-file/services/#logging)
 - [Use multiple Compose files](https://docs.docker.com/compose/how-tos/multiple-compose-files/)
 - [Merge rules for multiple Compose files](https://docs.docker.com/compose/how-tos/multiple-compose-files/merge/)
