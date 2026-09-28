@@ -696,7 +696,37 @@ export const curriculumSubjects: CurriculumSubject[] = [
         slug: 'aspnet-core',
         title: 'ASP.NET Core fundamentals',
         summary: 'Build a strong foundation with the .NET web application stack.',
-        lessons: [],
+        lessons: [
+          {
+            id: 'backend-aspnet-core-model-view-controller',
+            slug: 'model-view-controller',
+            title: 'Model-View-Controller: a first separation of concerns',
+            summary: 'Understand how MVC separates HTTP, application behavior, and presentation, and how those boundaries support SOLID design.',
+            contentFile: 'aspnet-core-model-view-controller.md',
+            readTime: '12 min',
+            category: 'Backend / ASP.NET Core',
+          },
+        ],
+        supplementaryLessons: [
+          {
+            id: 'backend-aspnet-core-resources-and-actions-api-design',
+            slug: 'resources-and-actions-api-design',
+            title: 'Resources and Actions : API Design',
+            summary: 'Design stable HTTP resources, use actions for domain commands, and avoid adding an endpoint for every frontend use case.',
+            contentFile: 'aspnet-core-resources-and-actions-api-design.md',
+            readTime: '18 min',
+            category: 'Backend / API design',
+          },
+          {
+            id: 'backend-aspnet-core-resources-and-actions-api-design-part-2',
+            slug: 'resources-and-actions-api-design-part-2',
+            title: 'Resources and Actions : API Design, Part 2 - A Design Session',
+            summary: 'Design a product, cart, and order API from use cases, apply endpoint heuristics, and break conventions deliberately when the domain needs it.',
+            contentFile: 'aspnet-core-resources-and-actions-api-design-part-2.md',
+            readTime: '20 min',
+            category: 'Backend / API design',
+          },
+        ],
       },
       {
         id: 'backend-rest-apis',

@@ -21,6 +21,9 @@ import dockerComposeLogRotationWarStoryMarkdown from '../content/docker-compose-
 import webFoundationsHttpExchangeMarkdown from '../content/web-foundations-http-exchange.md?raw'
 import webFoundationsStatusCodesMarkdown from '../content/web-foundations-status-codes.md?raw'
 import webFoundationsJsonOnTheWireMarkdown from '../content/web-foundations-json-on-the-wire.md?raw'
+import aspnetCoreModelViewControllerMarkdown from '../content/aspnet-core-model-view-controller.md?raw'
+import aspnetCoreResourcesAndActionsApiDesignMarkdown from '../content/aspnet-core-resources-and-actions-api-design.md?raw'
+import aspnetCoreResourcesAndActionsApiDesignPart2Markdown from '../content/aspnet-core-resources-and-actions-api-design-part-2.md?raw'
 import { curriculumSubjects } from '../data/curriculum'
 import Group2 from "../assets/Group 2.svg";
 
@@ -74,6 +77,9 @@ const markdownByFile: Record<string, string> = {
   'web-foundations-http-exchange.md': webFoundationsHttpExchangeMarkdown,
   'web-foundations-status-codes.md': webFoundationsStatusCodesMarkdown,
   'web-foundations-json-on-the-wire.md': webFoundationsJsonOnTheWireMarkdown,
+  'aspnet-core-model-view-controller.md': aspnetCoreModelViewControllerMarkdown,
+  'aspnet-core-resources-and-actions-api-design.md': aspnetCoreResourcesAndActionsApiDesignMarkdown,
+  'aspnet-core-resources-and-actions-api-design-part-2.md': aspnetCoreResourcesAndActionsApiDesignPart2Markdown,
 }
 const lessonHtml = computed(() => {
   const markdown = lesson.value ? markdownByFile[lesson.value.contentFile] : undefined
